@@ -4,7 +4,10 @@ import ShareDetailComponent from "./Components/ShareDetailComponent";
 
 
 ReactDOM.render(
-<div>
-    <ShareDetailComponent></ShareDetailComponent>
+<div className="ui container">
+    <ShareDetailComponent shareName="NLC"></ShareDetailComponent>
+    <ShareDetailComponent shareName="NAC"></ShareDetailComponent>
+    <ShareDetailComponent shareName="SBI"></ShareDetailComponent>
+
 </div>
 ,document.getElementById("root"))

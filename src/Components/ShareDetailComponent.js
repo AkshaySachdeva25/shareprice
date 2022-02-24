@@ -14,7 +14,8 @@ export default class ShareDetailComponent extends Component {
     render() {
         return (
             <div className="ui container">
-                <h1 className="heading mt-6"> NLC Share Details</h1>
+                <br></br>
+                <h1> Share Details of {this.props.shareName}</h1>
                 <table className="ui blue table">
                     <thead>
                         <tr>
@@ -35,14 +36,19 @@ export default class ShareDetailComponent extends Component {
     }
 
     componentDidMount() {
-        function getShareDetails(url) {
-            let shareDetails = Axios.get("https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/NLC");
+         var searchStock = this.props.shareName;
+         console.log(searchStock);
+        setInterval(() => {
+            this.getSharePrice("https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/"+searchStock)
+        }, 3000);
+    }
+
+    getSharePrice(url){
+        let shareDetails = Axios.get(url);
             shareDetails.then((success) => {
                 this.setState({
                     shareDetails: success.data.data
                 })
             })
-
-        }
     }
 }
